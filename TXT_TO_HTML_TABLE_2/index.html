@@ -8,14 +8,14 @@
                 var lines = data.split("\n");
                 $.each(lines, function (n, elem) {
                     if (n % 2 == 0) {
-                        $('#container').append('<tr id="' + n + '"></tr>');
+                        $('#container').append('<tr id="' + n + '" class="even"></tr>');
                         var cells = lines[n].split(" ");
                         $.each(cells, function (j, cel) {
                             $('#' + n).append('<td>' + cel + '</td>');
                         });
                     }
                     else {
-                        $('#container1').append('<tr id="' + n + '"></tr>');
+                        $('#container').append('<tr id="' + n + '" class="odd"></tr>');
                         var cells = lines[n].split(" ");
                         $.each(cells, function (j, cel) {
                             $('#' + n).append('<td>' + cel + '</td>');
@@ -30,12 +30,15 @@
         td {
             border: 1px solid black;
         }
+        
+        .even {
+            background: yellow;
+        }
     </style>
 </head>
 
 <body>
     <table id="container"></table>
-    <table id="container1"></table>
 </body>
 
 </html>
