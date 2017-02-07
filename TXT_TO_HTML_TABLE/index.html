@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link type="text/txt" src="DATA/upodobania.txt">
+    <script>
+        /**/
+        $(document).ready(function () {
+            $.get('DATA/upodobania.txt', function (data) {
+                var lines = data.split("\n");
+                $.each(lines, function (n, elem) {
+                    $('#container').append('<tr id="' + n + '"></tr>');
+                    var cells = lines[n].split(" ");
+                    $.each(cells, function (j, cel) {
+                        $('#' + n).append('<td>' + cel + '</td>');
+                    });
+                });
+            });
+        });
+    </script>
+    <style>
+        table,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="container"></table>
+</body>
+
+</html>
