@@ -1,0 +1,24 @@
+* {
+    font-size: 13px;
+}
+
+[lang=pl] {
+    color: grey;
+    font-style: italic;
+}
+
+.ref {
+    width: 1em;
+    display: inline-block;
+    float: left;
+}
+
+#form {
+    font-size: 15px;
+    display: inline-block;
+    float: right;
+}
+
+td {
+    padding: 15px;
+}

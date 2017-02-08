@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--    Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--    -->
+    <link type="text/css" rel="stylesheet" href="CSS/style.css">
+    <script>
+        $(document).ready(function () {
+            $('input[name=test]').click(function () {
+                if (this.id == "watch-me") {
+                    $('.ftr').show('slow');
+                }
+                else {
+                    $('.ftr').hide('slow');
+                }
+            });
+            $.get('DATA/demo.txt', function (data) {
+                var lines = data.split("\n");
+                $.each(lines, function (n, elem) {
+                    $('#container').append('<tr id="' + n + '" class="line"></tr>');
+                    var cells = lines[n].split("\t");
+                    $.each(cells, function (j, cel) {
+                        if (j % 3 == 0) {
+                            $('#' + n).append('<td class="ref"><p>' + cel + '</p></td>');
+                        }
+                        else if (j % 3 == 1) {
+                            $('#' + n).append('<td class="tran" lang="es"><p>' + cel + '</p></td>');
+                        }
+                        else {
+                            $('#' + n).append('<td class="ftr" lang="pl" style="display:none"><p>' + cel + '</p></td>');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="form">
+        <input id="watch-me" name="test" type="radio" />Pokaż polskie tłumaczenie
+        <input name="test" type="radio" checked/>Ukryj polskie tłumaczenie </div>
+    <div class="jumbotron text-center">
+        <h3>Opowieść pod tytułem "Loren Ipsum"</h3></div>
+    <table id="container"> </table>
+</body>
+
+</html>

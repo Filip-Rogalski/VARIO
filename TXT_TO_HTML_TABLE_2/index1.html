@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--    Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--    -->
+    <link type="text/css" rel="stylesheet" href="CSS/style.css">
+    <script>
+        $(document).ready(function () {
+            $.get('DATA/OR_penelopa_kusacz.txt', function (data) {
+                var lines = data.split("\n");
+                $.each(lines, function (n, elem) {
+                    $('#container').append('<tr id="' + n + '" ></tr>');
+                    var cells = lines[n].split("\t");
+                    $.each(cells, function (j, cel) {
+                        if (j % 3 == 0) {
+                            $('#' + n).append('<td class="ref col-sm-4">' + cel + '</td>');
+                        }
+                        else if (j % 3 == 1) {
+                            $('#' + n).append('<td class="tran col-sm-4" lang="es">' + cel + '</td>');
+                        }
+                        else {
+                            $('#' + n).append('<td class="ftr col-sm-4" lang="pl">' + cel + '</td>');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h1 id="header">Oto opowieść o polowaniu na penelopy i kusacze</h1>
+    <table id="container"> </table>
+</body>
+
+</html>
