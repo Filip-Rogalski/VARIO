@@ -1,0 +1,40 @@
+#container {
+    position: relative;
+    margin: auto;
+    width: 500px;
+    height: 500px;
+    border: 1px solid grey;
+}
+
+.item {
+    width: 250px;
+    height: 250px;
+    font-size: 25px;
+    font-family: Arial sans-serif;
+    display: inline-block;
+}
+
+img {
+    resize: inherit;
+}
+
+#item_int1,
+#item_int2,
+#item_int3,
+#item_int4 {
+    margin: 25px;
+    width: 150px;
+    height: 200px;
+    left: 25px;
+    top: 25px;
+    background: goldenrod;
+    font-size: 50px;
+    text-align: center;
+    border-radius: 10px;
+    border: 10px solid darkgoldenrod;
+}
+
+.c1,
+.c2 {
+    visibility: hidden;
+}
