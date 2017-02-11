@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>slider demo</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <style>
+        .selector {
+            margin: 10px;
+            background: lightblue;
+        }
+        
+        .box {
+            position: relative;
+            margin: auto;
+            margin-top: 100px;
+            background: red;
+            width: 0px;
+            height: 0px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+        #box2 {
+            background: blue;
+        }
+        
+        #box3 {
+            background: grey;
+        }
+        
+        span {
+            font-weight: 600;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body>
+    <div class="selector" id="selector1"></div>
+    <div class="selector" id="selector2"></div>
+    <div class="selector" id="selector3"></div>
+    <div id="result">Czerwony: <span id=span1></span> Niebieski: <span id=span2></span> Szary: <span id=span3></span></div>
+    <div class="box" id="box1"></div>
+    <div class="box" id="box2"></div>
+    <div class="box" id="box3"></div>
+    <script>
+        $(function () {
+            $("#selector1").slider({
+                stop: function (event, ui) {
+                    $('#box1').css({
+                        'height': 5 * ui.value + 'px'
+                        , 'width': 5 * ui.value + 'px'
+                    });
+                    $('#span1').text(5 * ui.value);
+                }
+            });
+            $("#selector2").slider({
+                stop: function (event, ui) {
+                    $('#box2').css({
+                        'height': 5 * ui.value + 'px'
+                        , 'width': 5 * ui.value + 'px'
+                    });
+                    $('#span2').text(5 * ui.value);
+                }
+            });
+            $("#selector3").slider({
+                stop: function (event, ui) {
+                    $('#box3').css({
+                        'height': 5 * ui.value + 'px'
+                        , 'width': 5 * ui.value + 'px'
+                    });
+                    $('#span3').text(5 * ui.value);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
